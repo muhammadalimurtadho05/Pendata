@@ -3,7 +3,7 @@
 
 | Keterangan        | Informasi              |
 |-------------------|------------------------|
-| **NIM**           | Nama Lengkap Anda      |
+| **NIM**           | 240411100119           |
 | **Nama**          | Muhammad Ali Murtadho  |
 | **Mata Kuliah**   | Penambangan Data       |
 | **Kelas**         | IF 4B                  |    

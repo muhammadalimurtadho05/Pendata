@@ -33,12 +33,5 @@ Dari sumber dataset tersebut didapatkan sebanyak 5 fitur dengan 150 data, dianta
 ```{code-cell}
 import pandas as pd
 df = pd.read_csv("../data/IRIS.csv")
-df.head(20)
-```
-
-Dari sumber dataset tersebut didapatkan sebanyak 5 fitur dengan 150 data, diantaranya sebagai berikut :
-```{code-cell}
-import pandas as pd
-df = pd.read_csv("../data/IRIS.csv")
-df.head(20)
+df.head(150)
 ```
