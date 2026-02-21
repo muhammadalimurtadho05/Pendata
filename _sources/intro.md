@@ -1,6 +1,5 @@
-# Muhammad Ali Murtadho - 240411100119
+# Notebook
     
-
 | Keterangan        | Informasi              |
 |-------------------|------------------------|
 | **NIM**           | 240411100119           |
