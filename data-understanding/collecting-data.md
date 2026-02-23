@@ -27,12 +27,15 @@ Data Collection adalah proses mengumpulkan data atau informasi yang relevan untu
 4. Scrapping data dari internet.
 
 ## Studi Kasus
-Pada studi kasus ini saya menggunakan Iris Flower Dataset yang didapatkan dari https://www.kaggle.com/datasets/arshid/iris-flower-dataset
+Pada studi kasus ini saya menggunakan Iris Flower Dataset yang didapatkan dari url berikut:
+[Iris Flower Dataset](https://www.kaggle.com/datasets/arshid/iris-flower-dataset).
+
 
 Dari sumber dataset tersebut didapatkan sebanyak 5 fitur dengan 150 data, diantaranya sebagai berikut :
 
 ```{code-cell}
 import pandas as pd
 df = pd.read_csv("../data/IRIS.csv")
+df.index = df.index + 1
 df.head(150)
 ```
