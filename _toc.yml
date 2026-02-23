@@ -1,0 +1,12 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+chapters:
+- file: business-understanding
+- file: data-understanding/home
+  sections: 
+    - file: data-understanding/collecting-data
+    - file: data-understanding/describe-data
+    - file: data-understanding/explore-data
