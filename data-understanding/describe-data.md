@@ -38,6 +38,7 @@ Setelah data diambil, kami lakukan visualisasi untuk salah satu fitur yaitu sepa
 
 Data  dan fitur yang sama juga diemplementasikan pada python sehingga didapatkan output sebagai berikut
 ```{code-cell}
+:tags: [hide-input]
 import pandas as pd
 from scipy import stats
 df=pd.read_csv("../data/IRIS.csv")
