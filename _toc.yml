@@ -10,3 +10,6 @@ chapters:
     - file: data-understanding/collecting-data
     - file: data-understanding/describe-data
     - file: data-understanding/explore-data
+    - file: data-understanding/distance
+      sections:
+        - file: data-understanding/distance/numerik

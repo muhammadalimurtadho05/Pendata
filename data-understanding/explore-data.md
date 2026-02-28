@@ -17,8 +17,22 @@ Eksplorasi data bertujuan untuk mengetahui pola dalam data, distribusi data, hub
 
 # Studi Kasus
 ## Visualisasi Data
-### Histogram
-Histogram adalah grafik yang digunakan untuk menampilkan distribusi atau penyebaran data numerik dalam bentuk batang (bar).
+### Kelas
+Kelas _(class)_ adalah kategori atau label target dalam sebuah dataset yang digunakan dalam proses klasifikasi.
+Dari dataset yang telah diambil sebelumnya, terdapat 3 kelas pada kolom species, yaitu sebagai berikut
+1. Iris-setosa
+2. Iris-versicolor
+3. Iris-virginica
+
+Berikut merupakan Histogram untuk kelas tersebut
+```{figure} ../img/distribusi-frekuensi-species.png
+---
+width: 60%
+align: center
+---
+Histogram Kelas
+```
+### Distribusi Frekuensi
 Berikut merupakan histogram distribusi frekuensi untuk 5 fitur yang ada pada Iris Flower Dataset, Visualisasi ini dilakukan pada software Orange Data Mining
 <!-- Figure -->
 ```{figure} ../img/distribusi-frekuensi-sepal_length.png
@@ -48,13 +62,6 @@ width: 60%
 align: center
 ---
 Histogram Distribusi Frekuensi Fitur petal_width
-```
-```{figure} ../img/distribusi-frekuensi-species.png
----
-width: 60%
-align: center
----
-Histogram Distribusi Frekuensi Fitur species
 ```
 ### Scatter Plot
 Scatter plot adalah grafik yang digunakan untuk menampilkan hubungan antara dua variabel numerik dalam bentuk titik-titik pada bidang koordinat.
