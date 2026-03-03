@@ -35,3 +35,7 @@ print("Jaccard Distance:", jaccard_distance)
 
 Gambar dibawah ini menunjukkan hasil dari implementasi pada Orange Data Mining
 ![Grafik Data](../../img/distance/binary-jaccard.png)
+
+```{note}
+Pada implementasi diatas, data yang digunakan adalah data pertama dan kedua
+```
