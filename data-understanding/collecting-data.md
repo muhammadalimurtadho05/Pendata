@@ -32,7 +32,7 @@ Pada studi kasus ini saya menggunakan Iris Flower Dataset yang didapatkan dari u
 
 
 Dari sumber dataset tersebut didapatkan sebanyak 5 fitur dengan 150 data, diantaranya sebagai berikut :
-
+### Python
 ```{code-cell}
 :tags: [hide-input]
 import pandas as pd
@@ -40,3 +40,9 @@ df = pd.read_csv("../data/IRIS.csv")
 df.index = df.index + 1
 df.head(150)
 ```
+
+### CSV Files
+![Grafik Data](../img/data-collection/data-csv.png)
+
+### Postgre
+![Grafik Data](../img/data-collection/sql-table.png)

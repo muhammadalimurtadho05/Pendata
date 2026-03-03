@@ -13,3 +13,5 @@ chapters:
     - file: data-understanding/distance
       sections:
         - file: data-understanding/distance/numerik
+        - file: data-understanding/distance/binary
+        - file: data-understanding/distance/kategorikal
