@@ -15,4 +15,5 @@ chapters:
         - file: data-understanding/distance/numerik
         - file: data-understanding/distance/binary
         - file: data-understanding/distance/kategorikal
+        - file: data-understanding/distance/campuran
         - file: data-understanding/distance/iris

@@ -21,7 +21,7 @@ df = pd.read_csv("../../data/Churn_Modelling.csv")
 df.head(5)
 ```
 
-Data diatas didapatkan dari platform [Kaggle](https://www.kaggle.com/datasets/marslinoedward/bank-customer-churn-prediction)
+Data diatas didapatkan dari platform [Kaggle](https://www.kaggle.com/datasets/marslinoedward/bank-customer-churn-prediction). Data tersebut memiliki 14 fitur dan 10000 Data.
 ## Euclidean
 Kita ambil sampel data pertama dan kedua untuk menghitung jarak dari kedua data tersebut. implementasi pertama menggunakan Python dengan sintaks `df.select_dtypes(include=[np.number])` dari modul `numpy` untuk memilih fitur numerik yang ada pada dataset tersebut. Fitur dengan tipe data numerik dapat dilihat sebagai berikut
 ```{code-cell}
