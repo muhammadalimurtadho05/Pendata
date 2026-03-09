@@ -23,33 +23,37 @@ df.head(5)
 
 Data diatas didapatkan dari platform [Kaggle](https://www.kaggle.com/datasets/marslinoedward/bank-customer-churn-prediction). Data tersebut memiliki 14 fitur dan 10000 Data.
 ## Euclidean
-Kita ambil sampel data pertama dan kedua untuk menghitung jarak dari kedua data tersebut. implementasi pertama menggunakan Python dengan sintaks `df.select_dtypes(include=[np.number])` dari modul `numpy` untuk memilih fitur numerik yang ada pada dataset tersebut. Fitur dengan tipe data numerik dapat dilihat sebagai berikut
-```{code-cell}
-df_numeric = df.select_dtypes(include=[np.number])
-print(df_numeric.dtypes)
-```
-Dari fitur diatas, diambil data pertama dan kedua untuk dihitung jaraknya, dan didapatkan hasilnya sebagai berikut 
+Kita ambil sampel data pertama dan kedua untuk menghitung jarak dari kedua data tersebut. Fitur yang merupakan tipe data numerik adala `CreditScore`, `Age`, `Tenure`, `Balance`, `NumOfProducts`, `EstimatedSalary`.
+Dari fitur Tersebut, diambil data pertama dan kedua untuk dihitung jaraknya, dan didapatkan hasilnya sebagai berikut 
 
 $$
 d(\mathbf{p}, \mathbf{q}) = \sqrt{\sum_{i=1}^{n} (p_i - q_i)^2}
 $$
 
 $$
-d(\mathbf{1}, \mathbf{2}) = \sqrt{(1-2)^2 + (15634602-15647311)^2 + (619-608)^2 + (42-41)^2 + (2-1)^2 + (0-83807.86)^2 + (1-1)^2 + (1-0)^2 + (1-1)^2 + (101348.88-112542.58)^2 + (1-0)^2}
+d(\mathbf{1}, \mathbf{2}) = \sqrt{(619-608)^2 + (42-41)^2 + (2-1)^2 + (0-83807.86)^2 + (1-1)^2 + (101348.88 - 112542.58)^2}
 $$
 
 $$
-d(\mathbf{1}, \mathbf{2}) = \sqrt{1+161518681+121+1+1+7023757398+0+1+0+125298919.7+1}
+d(\mathbf{1}, \mathbf{2}) = \sqrt{121+1+1+7023757398+0+125298919.7}
 $$
 
 $$
-d(\mathbf{1}, \mathbf{2}) = \sqrt{7310575124} = 85501.9013
+d(\mathbf{1}, \mathbf{2}) = \sqrt{7149056440} = 84552.09306
 $$
 
 Rumus diatas apabila diimplementasikan kedalam program Python sebagai berikut
 ```{code-cell}
 :tags: [hide-input]
-df_numeric = df.select_dtypes(include=[np.number])
+numeric_cols = [
+    'CreditScore',
+    'Age',
+    'Tenure', 
+    'Balance', 
+    'NumOfProducts', 
+    'EstimatedSalary'
+]
+df_numeric = df[numeric_cols]
 point1 = df_numeric.iloc[0]
 point2 = df_numeric.iloc[1]
 
@@ -68,15 +72,15 @@ $$
 $$
 
 $$
-    d(\mathbf{1}, \mathbf{2}) = |1-2| + |15634602-15647311| + |619-608| + |42-41| + |2-1| + |0-83807.86| + |1-1| + |1-0| + |1-1| + |101348.88-112542.58| + |1-0|
+    d(\mathbf{1}, \mathbf{2}) = |619-608| + |42-41| + |2-1| + |0-83807.86| + |1-1| +  |101348.88-112542.58| 
 $$
 
 $$
-    d(\mathbf{1}, \mathbf{2}) = 1	+ 12709	+ 11	+ 1 +	1	+ 83807.86	+ 0	+ 1 +	0	+ 11193.7 +	1
+    d(\mathbf{1}, \mathbf{2}) = 11+1+1+83807.86+0+11193.7
 $$
 
 $$
-d(\mathbf{1}, \mathbf{2}) = 107726.56
+d(\mathbf{1}, \mathbf{2}) = 95014.56
 $$
 
 Rumus diatas jika diimplementasikan pada Python akan mendapatkan hasil sebagai berikut: 

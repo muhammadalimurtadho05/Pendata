@@ -12,42 +12,49 @@ kernelspec:
   name: python3
 ---
 # Campuran
-## Binary
-Menghitung jarak data binary beberapa sampel dari data dibawah ini
+Cara menghitung tipe data campuran adalah dengan menghitung jarak tiap jenis data secara terpisah lalu dijumlahkan, sehingga didapatkan seperti berikut
+
+## Jarak Numerik (Euclidean)
 ```{code-cell}
-:tags: [hide-input]
 import pandas as pd
 import numpy as np
 df = pd.read_csv("../../data/Churn_Modelling.csv")
-df.head(5)
+numeric_cols = [
+    'CreditScore',
+    'Age',
+    'Tenure', 
+    'Balance', 
+    'NumOfProducts', 
+    'EstimatedSalary'
+]
+df_numeric = df[numeric_cols]
+point1 = df_numeric.iloc[0]
+point2 = df_numeric.iloc[1]
+
+euclidean_distance = np.sqrt(np.sum((point1 - point2)**2))
+print(euclidean_distance)
 ```
 
-Dari data diatas, kita pilih yang merupakan fitur dengan tipe data biner. fitur dengan tipe data biner yaitu `HasCrCard`, `IsActiveMember` dan `Exited`, sehingga jika diemplementasikan kedalam Python akan didapatkan hasil sebagai berikut:
+## Binary
 ```{code-cell}
-:tags: [hide-input]
 from scipy.spatial.distance import jaccard
-binary_cols = ['HasCrCard', 'IsActiveMember', 'Exited']
+binary_cols = [
+    'Gender', 
+    'HasCrCard', 
+    'IsActiveMember', 
+    'Exited'
+]
 df_binary = df[binary_cols]
 p1 = df_binary.iloc[0]
 p2 = df_binary.iloc[1]
 jaccard_distance = jaccard(p1, p2)
-print("Jaccard Distance:", jaccard_distance)
+
+print(jaccard_distance)
 ```
-
-Gambar dibawah ini menunjukkan hasil dari implementasi pada Orange Data Mining
-![Grafik Data](../../img/distance/binary-jaccard.png)
-
 ## Kategorikal
-
-Pada data diatas, yang dihitung hanya atribut  dengan tipe data kategorikal selain itu diabaikan
-
-atribut yang dihitung adalah Geography, HasCrCard, IsActiveMember, Exited sehingga didapatkan hasil sebagai berikut
 ```{code-cell}
-:tags: [hide-input]
 
-cols = [
-    "Geography"
-]
+cols = ["Geography"]
 
 p1 = df.loc[0, cols].values
 p2 = df.loc[1, cols].values
@@ -57,10 +64,14 @@ distance = np.mean(p1 != p2)
 print(distance)
 ```
 
-Gambar dibawah ini menunjukkan hasil dari implementasi pada Orange Data Mining
-![Grafik Data](../../img/distance/hamming-kategorikal.png)
+## Hasil
+Setelah semua jenis data dihitung jaraknya secara terpisah, kita tinggal menjumlahkan semua jarak tersebut sehingga didapatkan hasil sebagai berikut
 
-Berikut merupakan hasil jarak campuran dari Binary dan kategorikal, dihitung dengan cara menjumlahkan hasil jarak kedua data tersebut sehingga didapatkan hasil sebagai berikut
 ```{code-cell}
-print(jaccard_distance + distance)
+hasil = euclidean_distance + jaccard_distance + distance
+print(hasil)
+```
+
+```{note}
+Pada implementasi diatas, objek yang digunakan adalah objek pertama dan kedua
 ```

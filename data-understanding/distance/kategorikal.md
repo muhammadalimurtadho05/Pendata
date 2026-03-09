@@ -12,7 +12,7 @@ kernelspec:
   name: python3
 ---
 # Kategorikal
-Menghitung jarak data binary beberapa sampel dari data dibawah ini
+Menghitung jarak data Kategorikal beberapa sampel dari data dibawah ini
 ```{code-cell}
 :tags: [hide-input]
 import pandas as pd
@@ -21,15 +21,13 @@ df = pd.read_csv("../../data/Churn_Modelling.csv")
 df.head(5)
 ```
 
-Pada data diatas, yang dihitung hanya atribut  dengan tipe data kategorikal selain itu diabaikan
+Pada data diatas, yang dihitung hanya atribut dengan tipe data kategorikal selain itu diabaikan
 
-atribut yang dihitung adalah Geography, HasCrCard, IsActiveMember, Exited sehingga didapatkan hasil sebagai berikut
+atribut yang dihitung adalah hanyalah `Geography` sehingga didapatkan hasil sebagai berikut
 ```{code-cell}
 :tags: [hide-input]
 
-cols = [
-    "Geography","HasCrCard","IsActiveMember","Exited"
-]
+cols = ["Geography"]
 
 p1 = df.loc[0, cols].values
 p2 = df.loc[1, cols].values

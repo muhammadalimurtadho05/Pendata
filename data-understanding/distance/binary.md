@@ -21,11 +21,35 @@ df = pd.read_csv("../../data/Churn_Modelling.csv")
 df.head(5)
 ```
 
-Dari data diatas, kita pilih yang merupakan fitur dengan tipe data biner. fitur dengan tipe data biner yaitu `HasCrCard`, `IsActiveMember` dan `Exited`, sehingga jika diemplementasikan kedalam Python akan didapatkan hasil sebagai berikut:
+Dari data diatas, kita pilih yang merupakan fitur dengan tipe data biner. fitur dengan tipe data biner yaitu `Gender`, `HasCrCard`, `IsActiveMember` dan `Exited`, sehingga jika dihitung akan didapatkan hasil sebagai berikut:
+
+$$
+q(1,1) = 2 \\
+r(1,0) = 2 \\
+s(0,1) = 0 \\ 
+t(0,0) = 0 
+$$
+
+Karena tipe data ini merupakan biner simetris, maka digunakan rumus sebagai berikut
+
+$$
+\begin{aligned}
+D &= \frac{r + s}{q + r + s + t}\\[10pt]
+D &= \frac{2+0}{2+2+0}\\[10pt]
+D &= \frac{2}{4} = 0.5
+\end{aligned}
+$$
+
+Hasil perhitungan diatas jika diimplementasikan pada Python maka akan didapatkan hasil sebagai berikut
 ```{code-cell}
 :tags: [hide-input]
 from scipy.spatial.distance import jaccard
-binary_cols = ['HasCrCard', 'IsActiveMember', 'Exited']
+binary_cols = [
+    'Gender', 
+    'HasCrCard', 
+    'IsActiveMember', 
+    'Exited'
+]
 df_binary = df[binary_cols]
 p1 = df_binary.iloc[0]
 p2 = df_binary.iloc[1]
