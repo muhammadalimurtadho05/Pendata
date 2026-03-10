@@ -2,3 +2,7 @@
     text-align: justify;
     text-justify: inter-word;
 } */
+
+.math.display {
+    text-align: left !important;
+}
