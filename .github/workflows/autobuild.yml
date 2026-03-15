@@ -38,6 +38,7 @@ jobs:
           pip install pandas
           pip install scipy
           pip install matplotlib
+          pip install sklearn
       - name: Build HTML Assets
         run: jupyter-book build .
       - name: Upload artifact
