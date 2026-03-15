@@ -17,3 +17,11 @@ chapters:
         - file: data-understanding/distance/kategorikal
         - file: data-understanding/distance/campuran
         - file: data-understanding/distance/iris
+- file: tugas/main
+  sections:
+    - file: tugas/missing_values-normalisasi
+      sections:
+        - file: tugas/missing_values-normalisasi/min-max
+        - file: tugas/missing_values-normalisasi/z-score
+        - file: tugas/missing_values-normalisasi/decimal-scaling
+        - file: tugas/missing_values-normalisasi/wknni
