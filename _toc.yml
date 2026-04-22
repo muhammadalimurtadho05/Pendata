@@ -25,3 +25,4 @@ chapters:
         - file: tugas/missing_values-normalisasi/z-score
         - file: tugas/missing_values-normalisasi/decimal-scaling
         - file: tugas/missing_values-normalisasi/wknni
+    - file: tugas/uts
