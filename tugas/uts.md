@@ -34,15 +34,15 @@ Pada Tugas Ini, Saya menganalisis dataset tersebut menggunakan model KNN pada To
 ### Implementasi KNime
 ![Grafik Data](../img/UTS/Knime2.png)
 ### Penjelasan Node
-|        Node       |    Penjelasan |
-|-------------------|---------------|
-| CSV Reader        |  Membaca file CSV yang merupakan Dataset dari sampel data tanah  |
-| Missing Value     |  Melakukan Imputasi terhadap missing values  |
+|        Node       |                                             Penjelasan                                          |
+|-------------------|-------------------------------------------------------------------------------------------------|
+| CSV Reader        | Membaca file CSV yang merupakan Dataset dari sampel data tanah                                  |
+| Missing Value     | Melakukan Imputasi terhadap missing values                                                      |
 | One To Many       | Digunakan untuk mentransformasi nilai dari kolom Tekstur tanah dari kategorikal menjadi numerik |
-| Table Partitioner | Melakukan partisi dari dataset menjadi 2, yaitu data training dan data testing |
-| Normalizer        | Digunakan untuk melakukan normalisasi terhadap data |
-| KNN               | Menghitung jarak Euclidean dan klasifikasi |
-| Scorer            | Mengevaluasi hasil prediksi model |
+| Table Partitioner | Melakukan partisi dari dataset menjadi 2, yaitu data training dan data testing                  |
+| Normalizer        | Digunakan untuk melakukan normalisasi terhadap data                                             |
+| KNN               | Menghitung jarak Euclidean dan klasifikasi                                                      |
+| Scorer            | Mengevaluasi hasil prediksi model                                                               |
 
 ### Missing Values Handling
 ![Grafik Data](../img/UTS/missing-value.png)
@@ -54,7 +54,7 @@ Tabel diatas menunjukkan bahwa terdapat missing values pada dataset yang digunak
 Tabel diatas menunjukkan hasil imputasi dari missing values.
 
 ### Partisi Data
-Setelah dilakukan imputasi terhadap missing values, saya membagi data menjadi 2 yaitu data training sebesar 70% dari data awal dan data testing sebesar 30%. Setelah dibagi, maka jumlah data yang digunakan untuk training yaitu sebanyak 1400 record dan untuk data testing sebanyak 600 record. Implementasi ini menggunakan node `Table Partitioner` pada tools _KNime_ Sehingga didapatkan tabel baru sebagai berikut :
+Setelah dilakukan imputasi terhadap missing values dan melakukan transformasi kolom Tekstur tanah dari kategorikal ke numerik, saya membagi data menjadi 2 yaitu data training sebesar 70% dari data awal dan data testing sebesar 30%. Setelah dibagi, maka jumlah data yang digunakan untuk training yaitu sebanyak 1400 record dan untuk data testing sebanyak 600 record. Implementasi ini menggunakan node `Table Partitioner` pada tools _KNime_ Sehingga didapatkan tabel baru sebagai berikut :
 
 ![Grafik Data](../img/UTS/partisi1.png)
 
