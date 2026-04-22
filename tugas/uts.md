@@ -32,12 +32,13 @@ Pada Tugas Ini, Saya menganalisis dataset tersebut menggunakan model KNN pada To
 
 ## Penjelasan Implementasi
 ### Implementasi KNime
-![Grafik Data](../img/UTS/Knime.png)
+![Grafik Data](../img/UTS/Knime2.png)
 ### Penjelasan Node
 |        Node       |    Penjelasan |
 |-------------------|---------------|
 | CSV Reader        |  Membaca file CSV yang merupakan Dataset dari sampel data tanah  |
 | Missing Value     |  Melakukan Imputasi terhadap missing values  |
+| One To Many       | Digunakan untuk mentransformasi nilai dari kolom Tekstur tanah dari kategorikal menjadi numerik |
 | Table Partitioner | Melakukan partisi dari dataset menjadi 2, yaitu data training dan data testing |
 | Normalizer        | Digunakan untuk melakukan normalisasi terhadap data |
 | KNN               | Menghitung jarak Euclidean dan klasifikasi |
