@@ -27,3 +27,4 @@ chapters:
         - file: tugas/missing_values-normalisasi/wknni
     - file: tugas/uts
     - file: tugas/klasifikasi-naive-bayes
+    - file: tugas/decission-tree
