@@ -96,6 +96,114 @@ Entropy(s) &= -0.5182 \times (-0.9488) - 0.4818 \times (-1.0536) = 0.9991
 \end{aligned}
 $$
 
-### Hitung Gain, Split Info, dan Gain Ratio tiap Atribut
-1. Atribut `Odor`
+#### Hitung Gain, Split Info, dan Gain Ratio tiap Atribut
+###### Atribut `Odor`
+1. Hitung entropy pada tiap nilai
+
+    Dikarenakan atribut `odor` memiliki 9 nilai unik(kategorikal), maka perlu menghitung masing masing entropy pada nilai tersebut dengan rumus:
+
+    $ Entropy(v) = - \frac{e_{v}}{n_{v}} \log_2 (\frac{e_{v}}{n_{v}}) -  \frac{p_{v}}{n_{v}} \log_2 (\frac{p_{v}}{n_{v}})$
+    - Odor `a` (almond)
+        - $n = 400$
+        - $e = 400$
+        - $p = 0$
+
+        $$
+            \begin{aligned}
+            Entropy(a) &= - \frac{400}{400} \log_2 (\frac{400}{400}) -  \frac{0}{400} \log_2 (\frac{0}{400}) \\[10pt]
+            Entropy(a) &= - 1 \log_2 (1) -  0 \\[10pt]
+            Entropy(a) &= 0
+            
+            \end{aligned}
+        $$
     
+    - odor `n` (none) 
+        - $n = 3528$
+        - $e = 3408$
+        - $p = 120$
+
+        $$
+            \begin{aligned}
+            Entropy(n) &= - \frac{3408}{3528} \log_2 (\frac{3408}{3528}) -  \frac{120}{3528} \log_2 (\frac{120}{3528}) \\[10pt]
+            Entropy(n) &= - 0.9660 \times (-0.0499) - 0.0340 \times (-4.8793) \\[10pt]
+            Entropy(n) &= 0.0482 + 0.1660 = 0.2141
+            
+            \end{aligned}
+        $$
+    - odor `l`, `f`, `c`, `y`, `s`, `p`, `m`. dikarenakan semua bernilai `p` atau _poisonous_ maka nilai $entropy(v) = 0$
+2. Hitung Gain Split
+
+    untuk menghitung Gain Split, digunakan rumus sebagai berikut:
+
+    $Gain_{split} = Entropy(p) - (\sum_{i=1}^{k} {\frac{n_{i}}{n}Entropy(i)}) $
+
+    Hitung Weighted Entropy:
+    
+    $$
+    \begin{aligned}
+     &= \frac{400}{8124}(0) + \frac{400}{8124}(0) + \frac{3528}{8124}(0.2141) +\frac{2160}{8124}(0) \\[10pt]
+     & + \frac{192}{8124}(0) + \frac{576}{8124}(0) + \frac{576}{8124}(0) + \frac{256}{8124}(0) +\frac{36}{8124}(0) \\[10pt]
+     &= 0+0+0.4344 \times 0.2141 + 0 + 0 + 0 + 0 + 0 + 0 \\[10pt]
+     &= 0.0930
+     \end{aligned}
+    $$
+
+    Maka :
+
+    $Gain_{split} = 0.9991 - 0.0930 = 0.9061$
+
+3. Hitung Split Info
+
+    untuk menghitung Split Info, digunakan rumus sebagai berikut:
+    
+    $SplitINFO = - \sum_{i=1}^k{\frac{n_{i}}{n}Log\frac{n_{i}}{n}}$
+
+    maka :
+
+    $$
+    \begin{aligned}
+        SplitINFO &= - \sum_{i=1}^k{\frac{n_{i}}{n}Log\frac{n_{i}}{n}} \\[10pt]
+        SplitINFO(odor) &= - \frac{400}{8124} \log_2 \frac{400}{8124} - \frac{400}{8124} \log_2 \frac{400}{8124}
+                            -\frac{3528}{8124} \log_2 \frac{3528}{8124} -\frac{2160}{8124} \log_2 \frac{2160}{8124} \\[10pt]
+                            & -\frac{192}{8124} \log_2 \frac{192}{8124} -\frac{576}{8124} \log_2 \frac{576}{8124}
+                            -\frac{576}{8124} \log_2 \frac{576}{8124} -\frac{256}{8124} \log_2 \frac{256}{8124} \\[10pt]
+                            & -\frac{36}{8124} \log_2 \frac{36}{8124} \\[10pt]
+        SplitINFO(odor)     &= 0.2138 + 0.2138 + 0.5223 + 0.5082 + 0.1276 + 0.2707 + 0.2707 + 0.1571 + 0.0347 \\[10pt] 
+                            &= 2.3194
+    \end{aligned}
+    $$
+
+4. Hitung Gain Ratio
+
+    Untuk menghitung Gain Ratio, digunakan rumus sebagai berikut :
+
+    $GainRATIO_{split} = \frac{Gain_{split}}{SplitINFO}$
+
+    Maka :
+
+    $GainRATIO_{odor} = \frac{0.9061}{2.3194} = 0.3906$
+
+```{note}
+Hal yang sama dilakukan untuk semua atribut mulai dari entropy pada tiap nilai, Gain Split, Split Info dan Gain Ratio
+``` 
+
+Setelah `Gain Ratio` dari semua atribut dihitung, atribut `odor` memiliki Gain Ratio tertinggi sehingga dipilih sebagai `Root Node`. 
+Setelah root ditemukan, proses yang sama persis diulang secara rekursif pada setiap cabang yang belum `pure`, menggunakan subset data dan atribut yang tersisa, sampai semua cabang menjadi Leaf Node.
+
+```{note}
+Pure artinya semua data dalam satu node hanya terdiri dari satu kelas saja atau tidak ada campuran (entropy = 0).
+```
+
+#### Tree
+Setelah semua node `pure`, berarti pohon sudah selesai dibangun. Implementasi pada KNime menggunakan node `Desission Tree View` menghasilkan Tree sebagai berikut
+
+![Grafik Data](../img/decission-tree/tree.png)
+
+### Decission Tree Predictor
+Node ini digunakan untuk menguji kemampuan model tersebut. Node ini akan menerapkan aturan logika yang telah dipelajari ke dalam data testing untuk memprediksi apakah hasilnya `p` atau `e`
+
+#### Confusion Matrik
+![Grafik Data](../img/decission-tree/confusion.png)
+
+#### Akurasi
+![Grafik Data](../img/decission-tree/akurasi.png)
