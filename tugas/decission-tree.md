@@ -202,7 +202,7 @@ Setelah semua node `pure`, berarti pohon sudah selesai dibangun. Implementasi pa
 ### Decission Tree Predictor
 Node ini digunakan untuk menguji kemampuan model tersebut. Node ini akan menerapkan aturan logika yang telah dipelajari ke dalam data testing untuk memprediksi apakah hasilnya `p` atau `e`
 
-#### Confusion Matrik
+#### Confusion Matrix
 ![Grafik Data](../img/decission-tree/confusion.png)
 
 #### Akurasi
