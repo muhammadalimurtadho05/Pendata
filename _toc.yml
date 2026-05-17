@@ -28,3 +28,4 @@ chapters:
     - file: tugas/uts
     - file: tugas/klasifikasi-naive-bayes
     - file: tugas/decission-tree
+    - file: tugas/random-forest

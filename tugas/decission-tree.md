@@ -207,3 +207,4 @@ Node ini digunakan untuk menguji kemampuan model tersebut. Node ini akan menerap
 
 #### Akurasi
 ![Grafik Data](../img/decission-tree/akurasi.png)
+
