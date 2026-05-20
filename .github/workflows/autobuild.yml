@@ -39,6 +39,7 @@ jobs:
           pip install scipy
           pip install matplotlib
           pip install scikit-learn
+          pip install seaborn
       - name: Build HTML Assets
         run: jupyter-book build .
       - name: Upload artifact
